@@ -7,10 +7,79 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.izi.whatview.MainActivity">
+    tools:context="com.izi.whatview.MainActivity"
+    android:orientation="vertical">
 
-    <TextView
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etxUsername"
+
+        android:layout_below="@+id/etxPassword"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="35dp"
+        android:hint="@string/username"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etxPassword"
+        android:layout_marginTop="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:hint="@string/password"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/facebook"
+        android:id="@+id/btnFacebook"
+        android:layout_gravity="center_horizontal"
+        android:background="#3b5998"
+        android:textColor="#ffffff"
+        android:layout_above="@+id/btnTwitter"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/twitter"
+        android:id="@+id/btnTwitter"
+        android:layout_gravity="center_horizontal"
+        android:background="#00aced"
+        android:textColor="#ffffff"
+        android:layout_above="@+id/btnGmail"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gmail"
+        android:id="@+id/btnGmail"
+        android:layout_gravity="center_horizontal"
+        android:background="#d34836"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/etxSignIn"
+        android:text="@string/btnSignIn"
+        android:layout_marginEnd="52dp"
+        android:clickable="true"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/etxUsername"
+        android:onClick=""/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etxLogIn"
+        android:text="@string/btnLogIn"
+        android:layout_marginStart="47dp"
+        android:clickable="true"
+        android:layout_alignTop="@+id/etxSignIn"
+        android:layout_alignParentStart="true"
+        android:onClick=""/>
 </RelativeLayout>
