@@ -7,5 +7,8 @@
     <string name="facebook">Log in with Facebook</string>
     <string name="twitter">Log in with Twitter</string>
     <string name="gmail">Log in with Gmail</string>
+    <string name="mainSignUp">Start using Whatview</string>
+    <string name="email">Email</string>
+    <string name="btnCreate">Create</string>
 
 </resources>
