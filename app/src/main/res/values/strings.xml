@@ -10,5 +10,7 @@
     <string name="mainSignUp">Start using Whatview</string>
     <string name="email">Email</string>
     <string name="btnCreate">Create</string>
+    <string name="pickActivityTittle">Before Start</string>
+    <string name="pickActivitySubTittle">Pick your preferences</string>
 
 </resources>
