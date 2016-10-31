@@ -51,11 +51,21 @@ public class PickActivity extends AppCompatActivity {
     public  boolean status,status2,status3,status4;;
     public  List<String> selected;
 
+    UiController uiController;
+    TextView tvTitle1;
+    TextView tvTitle2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        uiController = new UiController();
         setContentView(R.layout.activity_pick);
 
+        tvTitle1 = (TextView)findViewById(R.id.txt);
+        tvTitle2 = (TextView)findViewById(R.id.txt2);
+
+        tvTitle1.setTypeface(uiController.GetCustomTypeface(this));
+        tvTitle2.setTypeface(uiController.GetCustomTypeface(this));
 
         status=true;
         status2=true;
@@ -69,17 +79,7 @@ public class PickActivity extends AppCompatActivity {
 
         ListAdapter listAdapter=new ArrayAdapter<>(
                 this,android.R.layout.simple_list_item_1, Series
-
-
-
-        )
-                ;
-
-
-
-
-
-
+        );
 
     lSeries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         public  String color;
@@ -192,20 +192,19 @@ public class PickActivity extends AppCompatActivity {
 
         }
     });
-
-
-
-
-
-
-
-
-
         lSeries.setAdapter(listAdapter);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        uiController.HideUiBars(getWindow());
+    }
 
-
-
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        uiController.HideUiBars(getWindow());
     }
 
 

@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".PickActivity"   android:theme="@style/Theme.AppCompat.Light.NoActionBar"> </activity>
+        <activity android:name=".PickActivity"> </activity>
     </application>
 
 </manifest>

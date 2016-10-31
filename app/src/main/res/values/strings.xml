@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">WhatView</string>
     <string name="btnLogIn">Log In</string>
-    <string name="btnSignIn">Sign In</string>
+    <string name="btnSignIn">Sign Up</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="facebook">Log in with Facebook</string>
