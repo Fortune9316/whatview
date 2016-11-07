@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -30,11 +31,22 @@ public class PickActivity extends AppCompatActivity {
 
     private ListView miLista;
     private ListView mlista2;
-    ArrayList<String> sss;
+   Integer[]image=new Integer[]{
+           R.drawable.twd,
+           R.drawable.got,
+           R.drawable.narcos,
+           R.drawable.breaking,
+           R.drawable.izombie,
+           R.drawable.rick,
+           R.drawable.sherlock,
+           R.drawable.monk,
+           R.drawable.gaki,
+   };
+
 
 
     String[] nombres =new String[]{
-            "The walking Dead", "Game of Thrones", "Narcos", "Breaking Bad"
+            "The walking Dead", "Game of Thrones", "Narcos", "Breaking Bad","izombie","Rick&Morty","Sherlock","Monk","Gaki no Tsukai"
     };
     String[] subtitulos=new String[]{
             "e","f","g","h",
@@ -46,7 +58,7 @@ public class PickActivity extends AppCompatActivity {
     UiController uiController;
     TextView tvTitle1;
     TextView tvTitle2;
-
+    ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,18 +71,19 @@ public class PickActivity extends AppCompatActivity {
 
         tvTitle1 = (TextView) findViewById(R.id.txt);
         tvTitle2 = (TextView) findViewById(R.id.txt2);
+        img =(ImageView)findViewById(R.id.rowImg);
 
         tvTitle1.setTypeface(uiController.GetCustomTypeface(this));
         tvTitle2.setTypeface(uiController.GetCustomTypeface(this));
 
-        //sss=new ArrayList<String>();
 
         ArrayAdapter<String> data=new ArrayAdapter<String>(this,R.layout.row2,R.id.titulo, nombres);
 
 
 
         miLista.setAdapter(data);
-       // mlista2.setAdapter(dataS);
+
+
 
 
     }
