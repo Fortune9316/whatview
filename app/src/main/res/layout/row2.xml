@@ -4,21 +4,31 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/row_selector"
+>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dp">
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="60dp"
+    android:scaleType="centerCrop"
+    android:src="@drawable/pp"
+    android:alpha="0.55"
+    android:id="@+id/rowImg"
 
-    >
-    <TextView
-        android:id="@+id/titulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:textColor="#FFDEDEDE"/>
-    <TextView
-        android:id="@+id/descripcion"
-        android:text="@string/pickActivitySubTittle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@android:style/TextAppearance.Small"
-        android:textColor="#FFC3C3C3"/>
+    />
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="#FFDEDEDE"/>
+
+
+
+    </RelativeLayout>
+
+
 
 
 </com.izi.whatview.CheckedLinearLayout>
