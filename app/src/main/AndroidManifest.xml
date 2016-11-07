@@ -15,8 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".PickActivity"> </activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".PickActivity"></activity>
+        <activity android:name=".HomeActivity"></activity>
     </application>
 
 </manifest>
