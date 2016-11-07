@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.util.SparseBooleanArray;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -18,38 +19,29 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-                /*
-              //agregar en itemclicklistener
-                try{
-                    for (int ctr=0;ctr<=Series.length;ctr++){
-                        if(position==ctr){
-                            lSeries.getChildAt(ctr).setBackgroundColor(Color.CYAN);
-                        }else{
-                            lSeries.getChildAt(ctr).setBackgroundColor(Color.WHITE);
-                        }
-                    }
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
 
-
-*/
 
 public class PickActivity extends AppCompatActivity {
 
+    private ListView miLista;
+    private ListView mlista2;
+    ArrayList<String> sss;
 
 
-
-    String[] Series =new String[]{
+    String[] nombres =new String[]{
             "The walking Dead", "Game of Thrones", "Narcos", "Breaking Bad"
     };
+    String[] subtitulos=new String[]{
+            "e","f","g","h",
+    };
 
-    public  boolean status,status2,status3,status4;;
-    public  List<String> selected;
+
+
 
     UiController uiController;
     TextView tvTitle1;
@@ -61,139 +53,55 @@ public class PickActivity extends AppCompatActivity {
         uiController = new UiController();
         setContentView(R.layout.activity_pick);
 
-        tvTitle1 = (TextView)findViewById(R.id.txt);
-        tvTitle2 = (TextView)findViewById(R.id.txt2);
+        miLista = (ListView)findViewById(R.id.lista);
+
+        miLista.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
+
+        tvTitle1 = (TextView) findViewById(R.id.txt);
+        tvTitle2 = (TextView) findViewById(R.id.txt2);
 
         tvTitle1.setTypeface(uiController.GetCustomTypeface(this));
         tvTitle2.setTypeface(uiController.GetCustomTypeface(this));
 
-        status=true;
-        status2=true;
-        status3=true;
-        status4=true;
+        //sss=new ArrayList<String>();
 
-
-        //agregando la lista al listview
-
-        final ListView lSeries=(ListView)findViewById(R.id.lista);
-
-        ListAdapter listAdapter=new ArrayAdapter<>(
-                this,android.R.layout.simple_list_item_1, Series
-        );
-
-    lSeries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        public  String color;
-        @Override
-
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            Object position1 = lSeries.getItemAtPosition(position);
-
-            if(!status && position1=="The walking Dead" ){
-                status=true;
-
-                parent.getChildAt(position).setBackgroundColor(Color.TRANSPARENT);
-                color="transparente";
-
-                Toast.makeText(getApplicationContext(), "" + color, Toast.LENGTH_SHORT).show();
-
-
-            }
-             else if (status && position1=="The walking Dead"){
-                status=false;
-
-                parent.getChildAt(position).setBackgroundColor(Color.LTGRAY);
-                color="gris";
-
-
-                Toast.makeText(getApplicationContext(), "" + color, Toast.LENGTH_SHORT).show();
-            }
-
-            if(!status2 && position1=="Game of Thrones" ){
-                status2=true;
-
-                parent.getChildAt(position).setBackgroundColor(Color.TRANSPARENT);
-                color="transparente";
-
-                Toast.makeText(getApplicationContext(), "" + color, Toast.LENGTH_SHORT).show();
-
-
-            }
-            else if (status2 && position1=="Game of Thrones"){
-                status2=false;
-
-                parent.getChildAt(position).setBackgroundColor(Color.LTGRAY);
-                color="gris";
-
-
-                Toast.makeText(getApplicationContext(), "" + color, Toast.LENGTH_SHORT).show();
-            }
-            if(!status3 && position1=="Narcos" ){
-                status3=true;
-
-                parent.getChildAt(position).setBackgroundColor(Color.TRANSPARENT);
-                color="transparente";
-
-                Toast.makeText(getApplicationContext(), "" + color, Toast.LENGTH_SHORT).show();
-
-
-            }
-            else if (status3 && position1=="Narcos"){
-
-                status3=false;
-
-                parent.getChildAt(position).setBackgroundColor(Color.LTGRAY);
-                color="gris";
-
-
-                Toast.makeText(getApplicationContext(), "" + color, Toast.LENGTH_SHORT).show();
-            }
-            if(!status4 && position1=="Breaking Bad" ){
-                status4=true;
-
-                parent.getChildAt(position).setBackgroundColor(Color.TRANSPARENT);
-                color="transparente";
-
-                Toast.makeText(getApplicationContext(), "" + color, Toast.LENGTH_SHORT).show();
-
-
-            }
-            else if (status4 && position1=="Breaking Bad"){
-                status4=false;
-
-                parent.getChildAt(position).setBackgroundColor(Color.LTGRAY);
-                color="gris";
-
-
-                Toast.makeText(getApplicationContext(), "" + color, Toast.LENGTH_SHORT).show();
-            }
-
-
-            //   lSeries.getChildAt(position).setBackgroundColor(Color.TRANSPARENT);
-
-            // for (int i=0;i<lSeries.getAdapter().getCount();i++) {
+        ArrayAdapter<String> data=new ArrayAdapter<String>(this,R.layout.row2,R.id.titulo, nombres);
 
 
 
+        miLista.setAdapter(data);
+       // mlista2.setAdapter(dataS);
 
 
-            //status = false;
-
-
-           // parent.getChildAt(position).setBackgroundColor(Color.BLUE);
-            // lSeries.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
-            // status=true;
-
-
-            //}
-
-
-
-
-        }
-    });
-        lSeries.setAdapter(listAdapter);
     }
+
+    public void deleteSelected(View view) {
+
+        SparseBooleanArray seleccionados = miLista.getCheckedItemPositions();
+
+        if(seleccionados==null || seleccionados.size()==0){
+
+            Toast.makeText(this,"No hay elementos seleccionados",Toast.LENGTH_SHORT).show();
+
+        }else{
+
+            StringBuilder resultado=new StringBuilder();
+            resultado.append("Se agregaran los siguientes elementos:\n");
+
+
+            final int size=seleccionados.size();
+            for (int i=0; i<size; i++) {
+
+                if (seleccionados.valueAt(i)) {
+
+                    resultado.append("El elemento "+seleccionados.keyAt(i)+" se ha agregado\n");
+
+                }
+            }
+            Toast.makeText(this,resultado.toString(),Toast.LENGTH_LONG).show();
+        }
+    }
+
 
     @Override
     protected void onResume() {
@@ -209,4 +117,5 @@ public class PickActivity extends AppCompatActivity {
 
 
 }
+
 
