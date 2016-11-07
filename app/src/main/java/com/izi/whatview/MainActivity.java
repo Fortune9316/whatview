@@ -5,10 +5,12 @@ import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     Button logInFaceBtn;
     Button logInTwittBtn;
     Button logInGmailBtn;
+    EditText username;
+    EditText password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         logInFaceBtn = (Button) findViewById(R.id.btnFacebook);
         logInTwittBtn = (Button) findViewById(R.id.btnTwitter);
         logInGmailBtn = (Button) findViewById(R.id.btnGmail);
+        username = (EditText) findViewById(R.id.etxUsername);
+        password = (EditText) findViewById(R.id.etxPassword);
 
         Typeface type = Typeface.createFromAsset(getAssets(),"fonts/BebasNeue.otf");
         titleAppTv.setTypeface(type);
@@ -66,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void LogIn(View view) {
         Intent i = new Intent(getApplicationContext(),PickActivity.class);
+        Data data = new Data(this);
+        Editable ed1 = username.getText();
+        Editable ed2 = password.getText();
+        data.addUser(data,ed1.toString(),ed2.toString());
+        Toast.makeText(this,"Changes saved in database",Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
 }

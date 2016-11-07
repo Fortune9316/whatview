@@ -98,6 +98,8 @@ public class PickActivity extends AppCompatActivity {
 
                 }
             }
+            Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+            startActivity(i);
             Toast.makeText(this,resultado.toString(),Toast.LENGTH_LONG).show();
         }
     }

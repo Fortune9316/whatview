@@ -41,10 +41,12 @@
         android:layout_weight="1"
 
         />
-    <Button
+    <TextView
+        android:gravity="center_horizontal"
+        android:textSize="16dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="add"
+        android:text="ADD"
         android:onClick="deleteSelected"
         />
 
