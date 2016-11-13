@@ -33,9 +33,6 @@ public class MyFragment extends Fragment {
 
         LinearLayout l = (LinearLayout) inflater.inflate(R.layout.swipe_layout, container, false);
 
-        int pos = this.getArguments().getInt("pos");
-        TextView tv = (TextView) l.findViewById(R.id.text);
-        tv.setText("Position = " + pos);
 
         MyLinearLayout root = (MyLinearLayout) l.findViewById(R.id.root);
         float scale = this.getArguments().getFloat("scale");
