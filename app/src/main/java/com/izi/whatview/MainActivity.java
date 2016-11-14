@@ -72,10 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void LogIn(View view) {
         Intent i = new Intent(getApplicationContext(),PickActivity.class);
-        Data data = new Data(this);
-        Editable ed1 = username.getText();
-        Editable ed2 = password.getText();
-        data.addUser(data,ed1.toString(),ed2.toString());
         Toast.makeText(this,"Changes saved in database",Toast.LENGTH_SHORT).show();
         startActivity(i);
     }

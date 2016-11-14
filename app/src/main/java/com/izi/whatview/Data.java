@@ -25,7 +25,6 @@ public class Data extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put("username",nom);
         cv.put("password",pass);
-
         sq.insert("user",null,cv);
     }
 
