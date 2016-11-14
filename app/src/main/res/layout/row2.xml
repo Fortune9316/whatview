@@ -12,7 +12,6 @@
     android:layout_width="wrap_content"
     android:layout_height="60dp"
     android:scaleType="centerCrop"
-    android:src="@drawable/pp"
     android:alpha="0.55"
     android:id="@+id/rowImg"
 
