@@ -1,6 +1,8 @@
 package com.izi.whatview;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,7 +76,40 @@ public class MainActivity extends AppCompatActivity {
 
     public void LogIn(View view) {
         Intent i = new Intent(getApplicationContext(),PickActivity.class);
-        Toast.makeText(this,"Changes saved in database",Toast.LENGTH_SHORT).show();
-        startActivity(i);
+        Data data = new Data(this);
+        SQLiteDatabase sq = data.getWritableDatabase();
+        Cursor cursor = sq.rawQuery("select * from user",null);
+        ArrayList<String> arrayListUser = new ArrayList<>();
+        ArrayList<String> arrayListPassword = new ArrayList<>();
+        if(cursor!=null){
+            if(cursor.moveToFirst()){
+                do{
+                    String usu = cursor.getString(cursor.getColumnIndex("username"));
+                    String pass = cursor.getString(cursor.getColumnIndex("password"));
+                    arrayListUser.add(usu);
+                    arrayListPassword.add(pass);
+                }while (cursor.moveToNext());
+            }
+        }
+        if(checkRegister(arrayListUser,arrayListPassword,username.getText().toString().trim(),password.getText().toString().trim()))
+        {
+            Toast.makeText(this,"Welcome",Toast.LENGTH_SHORT).show();
+            startActivity(i);
+        }else
+        {
+            Toast.makeText(this,"Invalid user or password",Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+    public boolean checkRegister(ArrayList listUser, ArrayList listPassword, String user,String password)
+    {
+        for(int i=0;i<listUser.size();i++)
+        {
+            if(listUser.get(i).equals(user) && listPassword.get(i).equals(password))
+                return true;
+        }
+        return  false;
     }
 }
