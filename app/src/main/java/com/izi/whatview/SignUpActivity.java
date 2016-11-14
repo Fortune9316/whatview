@@ -16,7 +16,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import java.util.Properties;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -29,9 +31,11 @@ public class SignUpActivity extends AppCompatActivity {
     EditText username;
     EditText password;
     EditText email;
+    public static SignUpActivity instance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = this;
         uiController = new UiController();
         setContentView(R.layout.activity_sign_up);
         tvTitle = (TextView)findViewById(R.id.tvMainSignUp);
@@ -72,8 +76,8 @@ public class SignUpActivity extends AppCompatActivity {
         }else
         {
             data.addUser(data,ed1.toString(),ed2.toString());
-            Toast.makeText(getApplicationContext(),"Account created successfully",Toast.LENGTH_SHORT).show();
-            this.finish();
+            sendConfirmation(ed3.toString());
+            //this.finish();
         }
 
     }
@@ -85,5 +89,14 @@ public class SignUpActivity extends AppCompatActivity {
                 return true;
         }
         return  false;
+    }
+
+    public void sendConfirmation(String mail)
+    {
+       String message = "Dear  " + username.getText().toString().trim() + ": \n \n" + "Welcome to Whatview, thank you for register :)";
+
+
+        SendMail sm = new SendMail(this,mail.trim(),"Whatview new account",message.trim());
+        sm.execute();
     }
 }
