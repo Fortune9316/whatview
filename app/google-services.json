@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "906987196683",
+    "project_id": "positive-guild-149719"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906987196683:android:a660b48ba15ef9a1",
+        "android_client_info": {
+          "package_name": "com.izi.whatview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906987196683-j2s4shr86h4cumb4m1te29mnet33pv4s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.izi.whatview",
+            "certificate_hash": "39D83919FEB0D19FCE2306FEAC2CC4BC4B9D40E2"
+          }
+        },
+        {
+          "client_id": "906987196683-avtfe9c011kpptfdt4bcba2litn4hsm9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYb0uoBCPgZjWysxhfYRhUobPO6P90e3U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
