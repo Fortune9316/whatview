@@ -1,45 +1,64 @@
 package com.izi.whatview;
 
-
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.izi.whatview.Carousel.MyPagerAdapter;
-
+import android.view.View;
 
 public class HomeActivity extends AppCompatActivity {
 
-    UiController uiController;
 
-    public final static int PAGES = 5;
-    // You can choose a bigger number for LOOPS, but you know, nobody will fling
-    // more than 1000 times just in order to test your "infinite" ViewPager :D
-    public final static int LOOPS = 1000;
-    public final static int FIRST_PAGE = PAGES * LOOPS / 2;
-
-    public MyPagerAdapter adapter;
-    public ViewPager pager;
+    ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        uiController = new UiController();
-        uiController.HideUiBars(getWindow());
 
-        pager = (ViewPager) findViewById(R.id.vpgHome);
+        TabLayout tabLayout=(TabLayout)findViewById(R.id.tabPrincipal);
+        tabLayout.addTab(tabLayout.newTab().setText("Perfil"));
+        tabLayout.addTab(tabLayout.newTab().setText("Home"));
+        tabLayout.addTab(tabLayout.newTab().setText("Favoritos"));
 
-        adapter = new MyPagerAdapter(this, this.getSupportFragmentManager());
-        pager.setAdapter(adapter);
-        pager.setPageTransformer(false, adapter);
+        FragmentAdapterClass fragmentAdapterClass=new FragmentAdapterClass(getSupportFragmentManager(),tabLayout.getTabCount());
 
-        // Set current item to the middle page so we can fling to both
-        // directions left and right
-        pager.setCurrentItem(FIRST_PAGE);
+        viewPager=(ViewPager)findViewById(R.id.visorPagina);
+        viewPager.setAdapter(fragmentAdapterClass);
 
-        // Necessary or the pager will only have one extra page to show
-        // make this at least however many pages you can see
-        pager.setOffscreenPageLimit(3);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
+        viewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
+            @Override
+            public void transformPage(View page, float position) {
+                page.setRotationY(position*-30);
+            }
+        });
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(viewPager.getCurrentItem()==0){
+            super.onBackPressed();
+        }else{
+            viewPager.setCurrentItem(viewPager.getCurrentItem()-1);
+        }
     }
 }

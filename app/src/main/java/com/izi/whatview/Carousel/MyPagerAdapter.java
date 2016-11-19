@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.izi.whatview.HomeActivity;
+import com.izi.whatview.HomeFragment;
 import com.izi.whatview.R;
 
 public class MyPagerAdapter extends FragmentPagerAdapter implements ViewPager.PageTransformer {
@@ -16,11 +16,11 @@ public class MyPagerAdapter extends FragmentPagerAdapter implements ViewPager.Pa
 
     private MyLinearLayout cur = null;
     private MyLinearLayout next = null;
-    private HomeActivity context;
+    private HomeFragment context;
     private FragmentManager fm;
     private float scale;
 
-    public MyPagerAdapter(HomeActivity context, FragmentManager fm) {
+    public MyPagerAdapter(HomeFragment context, FragmentManager fm) {
         super(fm);
         this.fm = fm;
         this.context = context;
@@ -29,18 +29,18 @@ public class MyPagerAdapter extends FragmentPagerAdapter implements ViewPager.Pa
     @Override
     public Fragment getItem(int position) {
         // make the first pager bigger than others
-        if (position == HomeActivity.FIRST_PAGE)
+        if (position == HomeFragment.FIRST_PAGE)
             scale = BIG_SCALE;
         else
             scale = SMALL_SCALE;
 
-        position = position % HomeActivity.PAGES;
+        position = position % HomeFragment.PAGES;
         return MyFragment.newInstance(context, position, scale);
     }
 
     @Override
     public int getCount() {
-        return HomeActivity.PAGES * HomeActivity.LOOPS;
+        return HomeFragment.PAGES * HomeFragment.LOOPS;
     }
 
     @Override
