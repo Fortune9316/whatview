@@ -101,57 +101,67 @@ public class HomeActivity extends AppCompatActivity {
         switch (v.getId())
         {
             case  R.id.btn1:
+                Titulo.setText(R.string.bad);
                 mensaje.setText(R.string.breaking);
                 Serie.setBackground(getResources().getDrawable(R.drawable.breaking));
                 break;
             case  R.id.btn2:
+                Titulo.setText(R.string.gaki);
                 mensaje.setText(R.string.tsukai);
                 Serie.setBackground(getResources().getDrawable(R.drawable.gaki));
                 break;
             case  R.id.btn3:
+                Titulo.setText(R.string.got);
                 mensaje.setText(R.string.game);
                 Serie.setBackground(getResources().getDrawable(R.drawable.got));
                 break;
             case  R.id.btn4:
+                Titulo.setText(R.string.zombie);
                 mensaje.setText(R.string.i);
                 Serie.setBackground(getResources().getDrawable(R.drawable.izombie));
                 break;
             case  R.id.btn5:
+                Titulo.setText(R.string.narcos);
                 mensaje.setText(R.string.narc);
                 Serie.setBackground(getResources().getDrawable(R.drawable.narcos));
                 break;
             case  R.id.btn6:
+                Titulo.setText(R.string.twd);
                 mensaje.setText(R.string.walking);
                 Serie.setBackground(getResources().getDrawable(R.drawable.twd));
                 break;
             case  R.id.buton1:
+                Titulo.setText(R.string.sherloc);
                 mensaje.setText(R.string.sher);
                 Serie.setBackground(getResources().getDrawable(R.drawable.sherlock));
                 break;
             case  R.id.buton2:
+                Titulo.setText(R.string.umr);
                 mensaje.setText(R.string.umaru);
                 Serie.setBackground(getResources().getDrawable(R.drawable.pp));
                 break;
             case  R.id.buton3:
+                Titulo.setText(R.string.rick);
                 mensaje.setText(R.string.morty);
                 Serie.setBackground(getResources().getDrawable(R.drawable.rick));
                 break;
             case  R.id.buton4:
+                Titulo.setText(R.string.bad);
                 mensaje.setText(R.string.breaking);
                 Serie.setBackground(getResources().getDrawable(R.drawable.breaking));
                 break;
 
             case  R.id.buton5:
+                Titulo.setText(R.string.bad);
                 mensaje.setText(R.string.breaking);
                 Serie.setBackground(getResources().getDrawable(R.drawable.breaking));
                 break;
             case  R.id.buton6:
+                Titulo.setText(R.string.bad);
                 mensaje.setText(R.string.breaking);
                 Serie.setBackground(getResources().getDrawable(R.drawable.breaking));
                 break;
         }
-
-
 
         Button btnEnviarMail = (Button) dialoglayout.findViewById(R.id.btnGo);
         btnEnviarMail.setOnClickListener(new View.OnClickListener() {
