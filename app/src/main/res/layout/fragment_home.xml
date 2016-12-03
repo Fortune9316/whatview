@@ -35,40 +35,41 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/tempbutton2"
+                android:background="@drawable/breaki"
                 android:id="@+id/btn1"
                 android:onClick="goAlert"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/testbutton"
+                android:background="@drawable/gak"
                 android:id="@+id/btn2"
                 android:onClick="goAlert"/>
+
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/tempbutton2"
+                android:background="@drawable/game"
                 android:id="@+id/btn3"
                 android:onClick="goAlert"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/testbutton"
+                android:background="@drawable/zomb"
                 android:id="@+id/btn4"
                 android:onClick="goAlert"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/testbutton"
+                android:background="@drawable/narc"
                 android:onClick="goAlert"
                 android:id="@+id/btn5"/>
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/tempbutton2"
+                android:background="@drawable/walk"
                 android:onClick="goAlert"
                 android:id="@+id/btn6"/>
         </LinearLayout>
@@ -92,39 +93,39 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/testbutton"
+                android:background="@drawable/sherk"
                 android:onClick="goAlert"
                 android:id="@+id/buton1"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/tempbutton2"
+                android:background="@drawable/uma"
                 android:onClick="goAlert"
                 android:id="@+id/buton2"/>
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/testbutton"
+                android:background="@drawable/rm"
                 android:onClick="goAlert"
                 android:id="@+id/buton3"/>
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/tempbutton2"
+                android:background="@drawable/bang"
                 android:onClick="goAlert"
                 android:id="@+id/buton4"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/testbutton"
+                android:background="@drawable/strange"
                 android:onClick="goAlert"
                 android:id="@+id/buton5"/>
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/testbutton"
+                android:background="@drawable/the"
                 android:onClick="goAlert"
                 android:id="@+id/buton6"/>
 
@@ -133,3 +134,4 @@
     </HorizontalScrollView>
 
 </LinearLayout>
+
