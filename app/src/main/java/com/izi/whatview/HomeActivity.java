@@ -147,19 +147,19 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case  R.id.buton4:
                 Titulo.setText(R.string.bad);
-                mensaje.setText(R.string.breaking);
-                Serie.setBackground(getResources().getDrawable(R.drawable.breaking));
+                mensaje.setText(R.string.s1);
+                Serie.setBackground(getResources().getDrawable(R.drawable.big));
                 break;
 
             case  R.id.buton5:
                 Titulo.setText(R.string.bad);
-                mensaje.setText(R.string.breaking);
-                Serie.setBackground(getResources().getDrawable(R.drawable.breaking));
+                mensaje.setText(R.string.s2);
+                Serie.setBackground(getResources().getDrawable(R.drawable.stranger));
                 break;
             case  R.id.buton6:
                 Titulo.setText(R.string.bad);
-                mensaje.setText(R.string.breaking);
-                Serie.setBackground(getResources().getDrawable(R.drawable.breaking));
+                mensaje.setText(R.string.s3);
+                Serie.setBackground(getResources().getDrawable(R.drawable.flash));
                 break;
         }
 
@@ -198,4 +198,5 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 }
+
 
